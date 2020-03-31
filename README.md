@@ -21,7 +21,7 @@ const Sum = () => {
 };
 ```
 
-1) Consider the code below where we have our App functional component and a Sum functional component.  What relationship would you say the App is to the Sum?  
+1) Consider the code above where we have our App functional component and a Sum functional component.  What relationship would you say the App is to the Sum?  
 
 2) In the App we're passing different information into the Sum component. Why have we had to use {} brackets to send the numbers down - `num1={5}` for example?  
 
@@ -84,12 +84,13 @@ class App extends React.Component {
 
 ### Mini tasks continued...
 
-1) have a 'sort by cuteness' button that re-orders the puppies 
+1) Add a 'sort by cuteness' button that re-orders the puppies 
 
-2) add functionality to remove a puppy from the list  
+2) Add functionality to remove a puppy from the list  
 
-3) add functionality to upvote a puppy's cuteness ranking  
+3) Add functionality to upvote a puppy's cuteness ranking  
 
-4) give the puppies personalities (e.g `personalities: ['happy', 'excitable']` in the pup object) and having a drop 
+4) Give the puppies personalities (e.g `personalities: ['happy', 'excitable']` in the pup object) and having a drop 
 down/buttons etc that filters list to show puppies by personality   
+
 5) let us know if you've got this far and we'll give some more fun tasks for you to do!   
