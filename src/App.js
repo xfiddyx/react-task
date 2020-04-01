@@ -54,7 +54,8 @@ class App extends React.Component {
           'https://www.crosscountrytrains.co.uk/media/1773/hector-redruth-train-station-cat.jpg'
       }
     ],
-    sortByCuteness: true
+    sortByCuteness: true,
+    deletedSelectedPet: null
   };
 
   render() {
@@ -63,12 +64,13 @@ class App extends React.Component {
         <Header name={user} />
         <button onClick={Hello(user)}>Click to get user</button>
         <button onClick={this.handleClick}>Show me the pups and kits!</button>
-        <button onClick={this.sortByCuteness}>Sort The Cuteness</button>
+        <button onClick={this.sortByCuteness}>Sort by cuteness</button>
         <AnimalList
           puppies={this.state.puppies}
           kittens={this.state.kittens}
           showImages={this.state.showImages}
           sortByCuteness={this.state.sortByCuteness}
+          deleteSelectedPet={this.deleteSelectedPet}
         />
       </div>
     );
@@ -81,6 +83,13 @@ class App extends React.Component {
   sortByCuteness = () => {
     this.setState(currentState => {
       return { sortByCuteness: !currentState.sortByCuteness };
+    });
+  };
+  deleteSelectedPet = event => {
+    const puppies = this.state.puppies.filter(pups => pups.name !== event.name);
+    const kittens = this.state.kittens.filter(kits => kits.name !== event.name);
+    this.setState(() => {
+      return { puppies, kittens };
     });
   };
 }

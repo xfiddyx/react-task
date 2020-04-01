@@ -18,20 +18,18 @@ const AnimalList = props => {
           return (
             <li key={type.name}>
               <p>
-                {type.name}, Cuteness: {type.cuteness}
+                Name: {type.name}
+                <br></br> Cuteness: {type.cuteness}
               </p>
               {props.showImages ? (
                 <img src={type.img} alt={`${type.name} profile pic`} />
               ) : null}
+              <br></br>
+              <button onClick={() => props.deleteSelectedPet(type)}>
+                Delete {`${type.name}`}
+              </button>
             </li>
           );
-        })
-        .sort(function(a, b) {
-          if (props.sortByCuteness) {
-            return a.cuteness - b.cuteness;
-          } else if (!props.sortByCuteness) {
-            return b - a;
-          }
         })}
     </ul>
   );
