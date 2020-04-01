@@ -3,7 +3,7 @@ import React from 'react';
 const Header = props => {
   return (
     <header>
-      <h1 key={props.name}>{`${props.name}'s puppy list`}</h1>
+      <h1 key={props.name}>{`${props.name}'s Kits and Pups list`}</h1>
     </header>
   );
 };

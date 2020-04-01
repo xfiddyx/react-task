@@ -77,7 +77,6 @@ class App extends React.Component {
     this.setState(currentState => {
       return { showImages: !currentState.showImages };
     });
-    // showImages = !showImages; // <-----
   };
   sortByCuteness = () => {
     this.setState(currentState => {
