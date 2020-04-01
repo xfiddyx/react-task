@@ -54,8 +54,7 @@ class App extends React.Component {
           'https://www.crosscountrytrains.co.uk/media/1773/hector-redruth-train-station-cat.jpg'
       }
     ],
-    sortByCuteness: true,
-    deletedSelectedPet: null
+    sortByCuteness: true
   };
 
   render() {
@@ -71,6 +70,7 @@ class App extends React.Component {
           showImages={this.state.showImages}
           sortByCuteness={this.state.sortByCuteness}
           deleteSelectedPet={this.deleteSelectedPet}
+          upVoteCuteness={this.upVoteCuteness}
         />
       </div>
     );
@@ -92,6 +92,18 @@ class App extends React.Component {
       return { puppies, kittens };
     });
   };
+  upVoteCuteness = event => {
+    const puppies = this.state.puppies.map(pup => {
+      if (pup.name === event.name) pup.cuteness++;
+      return pup;
+    });
+    const kittens = this.state.kittens.map(kit => {
+      if (kit.name === event.name) kit.cuteness++;
+      return kit;
+    });
+    this.setState(() => {
+      return { puppies, kittens };
+    });
+  };
 }
-
 export default App;

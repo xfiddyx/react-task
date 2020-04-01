@@ -28,6 +28,9 @@ const AnimalList = props => {
               <button onClick={() => props.deleteSelectedPet(type)}>
                 Delete {`${type.name}`}
               </button>
+              <button onClick={() => props.upVoteCuteness(type)}>
+                YASSSSS {`${type.name} is a cutie`}
+              </button>
             </li>
           );
         })}
