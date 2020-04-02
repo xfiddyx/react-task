@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Header, Hello } from './components/Header';
 import AnimalList from './components/Animal.ul';
+import PersonalityList from './components/PersonalityList';
 
 const user = 'Steven';
 const personalityType = [
@@ -78,23 +79,11 @@ class App extends React.Component {
     return (
       <div className='App'>
         <Header name={user} />
-        <label> Select Personality Type </label>
         <button onClick={Hello(user)}>Click to get user</button>
         <button onClick={this.handleClick}>Show me the pups and kits!</button>
         <button onClick={this.sortByCuteness}>Sort by cuteness</button>
         <br></br>
-        <br></br> <label> Select Personality Type </label>
-        <select id='myList'>
-          <option value=''> </option>
-          <option value={personalityType[0]}>{personalityType[0]}</option>
-          <option value={personalityType[1]}>{personalityType[1]}</option>
-          <option value={personalityType[2]}>{personalityType[2]}</option>
-          <option value={personalityType[3]}>{personalityType[3]}</option>
-          <option value={personalityType[4]}>{personalityType[4]}</option>
-          <option value={personalityType[5]}>{personalityType[5]}</option>
-          <option value={personalityType[6]}>{personalityType[6]}</option>
-          <option value={personalityType[7]}>{personalityType[7]}</option>
-        </select>
+        <PersonalityList personality={personalityType} />
         <AnimalList
           puppies={this.state.puppies}
           kittens={this.state.kittens}
@@ -119,9 +108,7 @@ class App extends React.Component {
   deleteSelectedPet = event => {
     const puppies = this.state.puppies.filter(pups => pups.name !== event.name);
     const kittens = this.state.kittens.filter(kits => kits.name !== event.name);
-    this.setState(() => {
-      return { puppies, kittens };
-    });
+    this.setState({ puppies, kittens });
   };
   upVoteCuteness = event => {
     const puppies = this.state.puppies.map(pup => {
@@ -132,9 +119,7 @@ class App extends React.Component {
       if (kit.name === event.name) kit.cuteness++;
       return kit;
     });
-    this.setState(() => {
-      return { puppies, kittens };
-    });
+    this.setState({ puppies, kittens });
   };
 }
 export default App;
