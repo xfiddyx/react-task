@@ -43,3 +43,6 @@ img {
 ul {
   list-style-type: none;
 }
+option:first-child {
+  display: none;
+}
