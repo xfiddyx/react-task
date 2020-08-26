@@ -72,7 +72,7 @@ class App extends React.Component {
       },
     ],
     sortByCuteness: false,
-    filterByPersonality: '',
+    filterByPersonality: 'personality',
   };
 
   render() {
