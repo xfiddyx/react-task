@@ -13,7 +13,7 @@ const personalityType = [
   'Mellow',
   'Excitable',
   'Skittish',
-  'Needy'
+  'Needy',
 ];
 class App extends React.Component {
   state = {
@@ -24,22 +24,22 @@ class App extends React.Component {
         cuteness: 7,
         personality: ['Short Dog Syndrome', 'Wild', 'Grumpy'],
         img:
-          'https://cdn1-www.dogtime.com/assets/uploads/2020/01/golden-retriever-corgi-mixed-dog-breed-pictures-1.jpg'
+          'https://cdn1-www.dogtime.com/assets/uploads/2020/01/golden-retriever-corgi-mixed-dog-breed-pictures-1.jpg',
       },
       {
         name: 'Rebel',
         cuteness: 8,
         personality: ['Laidback', 'Mellow'],
         img:
-          'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12232417/Greyhound-MP.jpg'
+          'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12232417/Greyhound-MP.jpg',
       },
       {
         name: 'Poppy',
         cuteness: 6,
         personality: ['Wild', 'Excitable'],
         img:
-          'https://upload.wikimedia.org/wikipedia/commons/0/04/Labrador_Retriever_%281210559%29.jpg'
-      }
+          'https://upload.wikimedia.org/wikipedia/commons/0/04/Labrador_Retriever_%281210559%29.jpg',
+      },
     ],
     kittens: [
       {
@@ -47,32 +47,32 @@ class App extends React.Component {
         cuteness: 11,
         personality: ['Mellow', 'Skittish'],
         img:
-          'https://vetstreet.brightspotcdn.com/dims4/default/4af17a9/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Fda%2F3f%2Faaaf93ab43f1aa42df7fc0c38e28%2FExotic-Shorthair-AP-1CEWS1-645sm3614.jpg'
+          'https://vetstreet.brightspotcdn.com/dims4/default/4af17a9/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Fda%2F3f%2Faaaf93ab43f1aa42df7fc0c38e28%2FExotic-Shorthair-AP-1CEWS1-645sm3614.jpg',
       },
       {
         name: 'Suki',
         cuteness: 7,
         personality: ['Grumpy', 'Needy'],
         img:
-          'https://www.thesprucepets.com/thmb/zDe9ogiPL6LIBS3lyyl3bIbnTJo=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-584178259-5a721010119fa80037ed3cce.jpg'
+          'https://www.thesprucepets.com/thmb/zDe9ogiPL6LIBS3lyyl3bIbnTJo=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-584178259-5a721010119fa80037ed3cce.jpg',
       },
       {
         name: 'Jiji',
         cuteness: 10,
         personality: ['Mellow', 'Skittish', 'Laidback'],
         img:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/American_Shorthair.jpg/1200px-American_Shorthair.jpg'
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/American_Shorthair.jpg/1200px-American_Shorthair.jpg',
       },
       {
         name: 'Umi',
         cuteness: 8,
         personality: ['Needy', 'Skittish'],
         img:
-          'https://www.crosscountrytrains.co.uk/media/1773/hector-redruth-train-station-cat.jpg'
-      }
+          'https://www.crosscountrytrains.co.uk/media/1773/hector-redruth-train-station-cat.jpg',
+      },
     ],
-    sortByCuteness: true,
-    filterByPersonality: ''
+    sortByCuteness: false,
+    filterByPersonality: '',
   };
 
   render() {
@@ -96,26 +96,30 @@ class App extends React.Component {
     );
   }
   handleClick = () => {
-    this.setState(currentState => {
+    this.setState((currentState) => {
       return { showImages: !currentState.showImages };
     });
   };
   sortByCuteness = () => {
-    this.setState(currentState => {
+    this.setState((currentState) => {
       return { sortByCuteness: !currentState.sortByCuteness };
     });
   };
-  deleteSelectedPet = event => {
-    const puppies = this.state.puppies.filter(pups => pups.name !== event.name);
-    const kittens = this.state.kittens.filter(kits => kits.name !== event.name);
+  deleteSelectedPet = (event) => {
+    const puppies = this.state.puppies.filter(
+      (pups) => pups.name !== event.name
+    );
+    const kittens = this.state.kittens.filter(
+      (kits) => kits.name !== event.name
+    );
     this.setState({ puppies, kittens });
   };
-  upVoteCuteness = event => {
-    const puppies = this.state.puppies.map(pup => {
+  upVoteCuteness = (event) => {
+    const puppies = this.state.puppies.map((pup) => {
       if (pup.name === event.name) pup.cuteness++;
       return pup;
     });
-    const kittens = this.state.kittens.map(kit => {
+    const kittens = this.state.kittens.map((kit) => {
       if (kit.name === event.name) kit.cuteness++;
       return kit;
     });
