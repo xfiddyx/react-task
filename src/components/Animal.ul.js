@@ -19,7 +19,7 @@ const AnimalList = (props) => {
             <li key={type.name}>
               <p>
                 Name: {type.name}
-                <br></br> Cuteness: {type.cuteness}
+                <br></br> Cuteness: tester plus new line{type.cuteness}
               </p>
               {props.showImages ? (
                 <img src={type.img} alt={`${type.name} profile pic`} />
