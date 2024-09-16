@@ -1,25 +1,25 @@
 import React from 'react';
 
-const AnimalList = props => {
+const AnimalList = (props) => {
   const kittens = props.kittens;
   const puppies = props.puppies;
   const animals = kittens.concat(puppies);
   return (
     <ul>
       {animals
-        .sort(function(a, b) {
+        .sort(function (a, b) {
           if (props.sortByCuteness) {
             return a.cuteness - b.cuteness;
           } else if (!props.sortByCuteness) {
             return b.cuteness - a.cuteness;
           }
         })
-        .map(type => {
+        .map((type) => {
           return (
             <li key={type.name}>
               <p>
                 Name: {type.name}
-                <br></br> Cuteness: {type.cuteness}
+                <br></br> Cuteness: tester plus new line{type.cuteness}
               </p>
               {props.showImages ? (
                 <img src={type.img} alt={`${type.name} profile pic`} />
@@ -31,6 +31,8 @@ const AnimalList = props => {
               <button onClick={() => props.upVoteCuteness(type)}>
                 YASSSSS {`${type.name} is a cutie`}
               </button>
+              <p>adding in a comment</p>
+              <p>adding another comment to it</p>
             </li>
           );
         })}
